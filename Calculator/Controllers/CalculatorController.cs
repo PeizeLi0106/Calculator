@@ -13,7 +13,7 @@ namespace Calculator.Controllers
     public class CalculatorController : Controller
     {
         private static NumberViewModel nvm = new NumberViewModel();
-        private static double result;
+        private static decimal result;
         // Index Page
         public IActionResult Index()
         {
@@ -21,24 +21,38 @@ namespace Calculator.Controllers
             return View(numberVm); // pass an empty model
         }
 
-        // Loaded Page
-        public IActionResult Loaded()
-        {
-            return View(nvm);
-        }
-
-        // POST: post the data onto the model and redirects to Loaded Page
-        public IActionResult Load(NumberViewModel numViewModel)
+        
+        // POST: post the data onto the model and redirects to corresponding functions
+        public IActionResult Load(NumberViewModel numViewModel, string addition, string subtraction, string multiplication, string division)
         {
             nvm.Number1 = numViewModel.Number1;
             nvm.Number2 = numViewModel.Number2;
-            return RedirectToAction(nameof(Loaded));
+            if (addition != null)
+            {
+                return RedirectToAction(nameof(addition));
+            }
+            if (subtraction != null)
+            {
+                return RedirectToAction(nameof(subtraction));
+
+            }
+            if (multiplication != null)
+            {
+                return RedirectToAction(nameof(multiplication));
+
+            }
+            if (division != null) {
+                return RedirectToAction(nameof(division));
+
+            }
+
+            return RedirectToAction(nameof(Index));
         }
 
         // Result Page
         public IActionResult Result()
         {
-            ViewData["Result"] = result;
+            ViewData["Result"] = result;  
             return View();
         }
 
@@ -48,17 +62,17 @@ namespace Calculator.Controllers
             return RedirectToAction(nameof(Result));
   
         }
-        public IActionResult subtraction(double num1, double num2)
+        public IActionResult subtraction()
         {
             result = nvm.Number1 - nvm.Number2;
             return RedirectToAction(nameof(Result));
         }
-        public IActionResult multiplication(double num1, double num2)
+        public IActionResult multiplication()
         {
             result = nvm.Number1 * nvm.Number2;
             return RedirectToAction(nameof(Result));
         }
-        public IActionResult division(double num1, double num2)
+        public IActionResult division()
         {
             result = nvm.Number1 / nvm.Number2;
             return RedirectToAction(nameof(Result));

@@ -21,16 +21,17 @@
                     <div class="mb-3">
                         <label class="form-label">1st number</label>
                         <input asp-for=Number1 type="number" class="form-control" step="any" placeholder="enter a number" required oninvalid="this.setCustomValidity('Please enter a valid number')"
-  oninput="this.setCustomValidity('')"/>
+                               oninput="this.setCustomValidity('')" />
                     </div>
                     <div class="mb-3">
                         <label class="form-label">2nd number</label>
                         <input asp-for=Number2 type="number" class="form-control" step="any" placeholder="enter a number" required oninvalid="this.setCustomValidity('Please enter a valid number')"
-  oninput="this.setCustomValidity('')"/>
+                               oninput="this.setCustomValidity('')" />
                     </div>
-                    <div class="mb-3">
-                        <button type="submit" class="btn btn-primary">Load</button>
-                    </div>
+                    <button type="submit" name="addition" class="btn btn-primary" value="0"><i class="fa-solid fa-plus"></i></button>
+                    <button type="submit" name="subtraction" class="btn btn-primary" value="0"><i class="fa-solid fa-minus"></i></button>
+                    <button type="submit" name="multiplication" class="btn btn-primary" value="0"><i class="fa-solid fa-xmark"></i></button>
+                    <button type="submit" name="division" class="btn btn-primary" value="0"><i class="fa-solid fa-divide"></i></button>
                 </form>
             </div>
             <div class="card-footer text-muted">
