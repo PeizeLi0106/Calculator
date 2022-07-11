@@ -1,9 +1,13 @@
-﻿@model NumberViewModel
-
+﻿
 
 @{
     ViewData["Title"] = "Calculator";
+    var result = ViewData["Result"];
+    var num1 = ViewData["Number1"];
+    var num2 = ViewData["Number2"];
+    var errorMessage = ViewData["ErrorMessage"];
 }
+
 
 <h1>
     Calculator
@@ -20,19 +24,23 @@
                 <form asp-controller="Calculator" asp-action="Load" method="post">
                     <div class="mb-3">
                         <label class="form-label">1st number</label>
-                        <input asp-for=Number1 type="number" class="form-control" step="any" placeholder="enter a number" required oninvalid="this.setCustomValidity('Please enter a valid number')"
+                        <input asp-for="@num1" type="number" class="form-control" step="any" placeholder="enter a number" required oninvalid="this.setCustomValidity('Please enter a valid number')"
                                oninput="this.setCustomValidity('')" />
                     </div>
                     <div class="mb-3">
                         <label class="form-label">2nd number</label>
-                        <input asp-for=Number2 type="number" class="form-control" step="any" placeholder="enter a number" required oninvalid="this.setCustomValidity('Please enter a valid number')"
+                        <input asp-for="@num2" type="number" class="form-control" step="any" placeholder="enter a number" required oninvalid="this.setCustomValidity('Please enter a valid number')"
                                oninput="this.setCustomValidity('')" />
+                        <label id="error">@errorMessage </label>
                     </div>
+                    <div class="btn-div">
                     <button type="submit" name="addition" class="btn btn-primary" value="0"><i class="fa-solid fa-plus"></i></button>
                     <button type="submit" name="subtraction" class="btn btn-primary" value="0"><i class="fa-solid fa-minus"></i></button>
                     <button type="submit" name="multiplication" class="btn btn-primary" value="0"><i class="fa-solid fa-xmark"></i></button>
                     <button type="submit" name="division" class="btn btn-primary" value="0"><i class="fa-solid fa-divide"></i></button>
+                    </div>
                 </form>
+                <label>The result is  @result</label>
             </div>
             <div class="card-footer text-muted">
                 Let's Calculate

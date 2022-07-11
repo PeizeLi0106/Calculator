@@ -12,21 +12,26 @@ namespace Calculator.Controllers
 {
     public class CalculatorController : Controller
     {
-        private static NumberViewModel nvm = new NumberViewModel();
+        private static decimal number1;
+        private static decimal number2;
         private static decimal result;
+        private static string errorMessage;
         // Index Page
         public IActionResult Index()
         {
-            var numberVm = new NumberViewModel();
-            return View(numberVm); // pass an empty model
+            ViewData["ErrorMessage"] = errorMessage;
+            ViewData["Result"] = result;
+            ViewData["Number1"] = number1;
+            ViewData["Number2"] = number2;
+            return View(); // pass an empty model
         }
 
         
         // POST: post the data onto the model and redirects to corresponding functions
-        public IActionResult Load(NumberViewModel numViewModel, string addition, string subtraction, string multiplication, string division)
+        public IActionResult Load(decimal num1, decimal num2, string addition, string subtraction, string multiplication, string division)
         {
-            nvm.Number1 = numViewModel.Number1;
-            nvm.Number2 = numViewModel.Number2;
+            number1 = num1;
+            number2 = num2;
             if (addition != null)
             {
                 return RedirectToAction(nameof(addition));
@@ -49,33 +54,37 @@ namespace Calculator.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        // Result Page
-        public IActionResult Result()
-        {
-            ViewData["Result"] = result;  
-            return View();
-        }
+        
 
         public IActionResult addition()
         {
-            result = nvm.Number1 + nvm.Number2;
-            return RedirectToAction(nameof(Result));
+            result = number1 + number2;
+            errorMessage = "";
+            return RedirectToAction(nameof(Index));
   
         }
         public IActionResult subtraction()
         {
-            result = nvm.Number1 - nvm.Number2;
-            return RedirectToAction(nameof(Result));
+            result = number1 - number2;
+            errorMessage = "";
+            return RedirectToAction(nameof(Index));
         }
         public IActionResult multiplication()
         {
-            result = nvm.Number1 * nvm.Number2;
-            return RedirectToAction(nameof(Result));
+            result = number1 * number2;
+            errorMessage = "";
+            return RedirectToAction(nameof(Index));
         }
         public IActionResult division()
         {
-            result = nvm.Number1 / nvm.Number2;
-            return RedirectToAction(nameof(Result));
+            if (number2 == 0)
+            {
+                errorMessage = "Undefined, please reenter for 2nd number";
+                return RedirectToAction(nameof(Index));
+            }
+            errorMessage = "";
+            result = number1 / number2;
+            return RedirectToAction(nameof(Index));
         }
     }
 }
