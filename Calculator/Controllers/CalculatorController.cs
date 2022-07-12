@@ -23,63 +23,43 @@ namespace Calculator.Controllers
             ViewData["Result"] = result;
             ViewData["Number1"] = number1;
             ViewData["Number2"] = number2;
-            return View(); // pass an empty model
+            return View(); 
         }
 
-        
-        // POST: post the data onto the model and redirects to corresponding functions
-        public IActionResult Load(decimal num1, decimal num2, string addition, string subtraction, string multiplication, string division)
+       
+        public IActionResult addition(decimal num1, decimal num2)
         {
             number1 = num1;
             number2 = num2;
-            if (addition != null)
-            {
-                return RedirectToAction(nameof(addition));
-            }
-            if (subtraction != null)
-            {
-                return RedirectToAction(nameof(subtraction));
-
-            }
-            if (multiplication != null)
-            {
-                return RedirectToAction(nameof(multiplication));
-
-            }
-            if (division != null) {
-                return RedirectToAction(nameof(division));
-
-            }
-
-            return RedirectToAction(nameof(Index));
-        }
-
-        
-
-        public IActionResult addition()
-        {
             result = number1 + number2;
             errorMessage = "";
             return RedirectToAction(nameof(Index));
   
         }
-        public IActionResult subtraction()
+        public IActionResult subtraction(decimal num1, decimal num2)
         {
+            number1 = num1;
+            number2 = num2;
             result = number1 - number2;
             errorMessage = "";
             return RedirectToAction(nameof(Index));
         }
-        public IActionResult multiplication()
+        public IActionResult multiplication(decimal num1, decimal num2)
         {
+            number1 = num1;
+            number2 = num2;
             result = number1 * number2;
             errorMessage = "";
             return RedirectToAction(nameof(Index));
         }
-        public IActionResult division()
+        public IActionResult division(decimal num1, decimal num2)
         {
+            number1 = num1;
+            number2 = num2;
             if (number2 == 0)
             {
-                errorMessage = "Undefined, please reenter for 2nd number";
+                result = 0;
+                errorMessage = "Undefined, please reenter for the 2nd number";
                 return RedirectToAction(nameof(Index));
             }
             errorMessage = "";

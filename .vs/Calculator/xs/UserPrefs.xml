@@ -1,31 +1,28 @@
 ﻿<Properties StartupConfiguration="{B1FC988E-1D8C-4287-8AEF-C7461C1E9BEE}|Default">
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Calculator PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workbench ActiveDocument="Calculator/Controllers/CalculatorController.cs">
     <Files>
       <File FileName="Calculator/Views/Home/Index.cshtml" Line="2" Column="37" />
       <File FileName="Calculator/Views/Home/Privacy.cshtml" Line="1" Column="1" />
-      <File FileName="Calculator/Controllers/CalculatorController.cs" Line="27" Column="1" />
+      <File FileName="Calculator/Controllers/CalculatorController.cs" Line="76" Column="43" />
       <File FileName="Calculator/Program.cs" Line="27" Column="1" />
       <File FileName="Calculator/Views/_ViewImports.cshtml" Line="1" Column="1" />
       <File FileName="Calculator/Views/_ViewStart.cshtml" Line="1" Column="1" />
-      <File FileName="Calculator/wwwroot/css/site.css" Line="20" Column="1" />
+      <File FileName="Calculator/wwwroot/css/site.css" Line="39" Column="1" />
       <File FileName="Calculator/wwwroot/js/site.js" Line="6" Column="1" />
-      <File FileName="Calculator/Views/Shared/_Layout.cshtml" Line="16" Column="108" />
+      <File FileName="Calculator/Views/Shared/_Layout.cshtml" Line="24" Column="57" />
       <File FileName="Calculator/Models/ErrorViewModel.cs" Line="1" Column="1" />
-      <File FileName="Calculator/Models/NumberViewModel.cs" Line="7" Column="23" />
-      <File FileName="Calculator/Views/Calculator/Result.cshtml" Line="10" Column="1" />
-      <File FileName="Calculator/Views/Calculator/Index.cshtml" Line="1" Column="1" />
+      <File FileName="Calculator/Views/Calculator/Index.cshtml" Line="34" Column="25" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Calculator" expanded="True">
             <Node name="Calculator" expanded="True">
-              <Node name="Controllers" expanded="True">
-                <Node name="CalculatorController.cs" selected="True" />
-              </Node>
+              <Node name="Controllers" expanded="True" />
               <Node name="Models" expanded="True" />
               <Node name="Views" expanded="True">
                 <Node name="Calculator" expanded="True" />
@@ -45,8 +42,7 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Calculator PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>

@@ -21,7 +21,7 @@
                 <h5>Enter the numbers</h5>
             </div>
             <div class="card-body">
-                <form asp-controller="Calculator" asp-action="Load" method="post">
+                <form asp-controller="Calculator" method="post">
                     <div class="mb-3">
                         <label class="form-label">1st number</label>
                         <input asp-for="@num1" type="number" class="form-control" step="any" placeholder="enter a number" required oninvalid="this.setCustomValidity('Please enter a valid number')"
@@ -34,10 +34,10 @@
                         <label id="error">@errorMessage </label>
                     </div>
                     <div class="btn-div">
-                    <button type="submit" name="addition" class="btn btn-primary" value="0"><i class="fa-solid fa-plus"></i></button>
-                    <button type="submit" name="subtraction" class="btn btn-primary" value="0"><i class="fa-solid fa-minus"></i></button>
-                    <button type="submit" name="multiplication" class="btn btn-primary" value="0"><i class="fa-solid fa-xmark"></i></button>
-                    <button type="submit" name="division" class="btn btn-primary" value="0"><i class="fa-solid fa-divide"></i></button>
+                    <button type="submit" asp-action="addition" class="btn btn-primary" value="0"><i class="fa-solid fa-plus"></i></button>
+                    <button type="submit" asp-action="subtraction" class="btn btn-primary" value="0"><i class="fa-solid fa-minus"></i></button>
+                    <button type="submit" asp-action="multiplication" class="btn btn-primary" value="0"><i class="fa-solid fa-xmark"></i></button>
+                    <button type="submit" asp-action="division" class="btn btn-primary" value="0"><i class="fa-solid fa-divide"></i></button>
                     </div>
                 </form>
                 <label>The result is  @result</label>
